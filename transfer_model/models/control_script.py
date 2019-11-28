@@ -455,13 +455,12 @@ if __name__ == '__main__':
             exp_files = glob.glob(os.path.join(T47D_COPASI_FORMATED_DATA, '*.csv'))
 
         # exp_files = exp_files + glob.glob(os.path.join(STEADTSTATE_COPASI_FORMATED_DATA, '*.csv'))
-
         # swap middle files so they are in the same order
-        exp_files[1], exp_files[2] = exp_files[2], exp_files[1]
+        # exp_files[1], exp_files[2] = exp_files[2], exp_files[1]
 
         with tasks.ParameterEstimation.Context(py_mod, exp_files, parameters='g', context='s') as context:
-            context.set('run_mode', False)
-            context.set('copy_number', 1)
+            context.set('run_mode', 'slurm')
+            context.set('copy_number', 528)
             context.set('separator', ',')
             context.set('prefix', '_')
             context.set('lower_bound', 0.1)
