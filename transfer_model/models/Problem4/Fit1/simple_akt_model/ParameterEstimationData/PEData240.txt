@@ -1,2 +1,2 @@
-TaskList[Parameter Estimation].(Problem)Parameter Estimation.Best Parameters	TaskList[Parameter Estimation].(Problem)Parameter Estimation.Best Value
-(	0.00120688	4.20303	0.835074	2.58692	2.31641	0.34235	3.48104	9.99895	6.1427	0.00102121	6.73425	0.844427	8.36794	5.55619	0.0147213	9.97827	0.0982616	0.0550313	1.078	0.26272	)	7.93664
+_kAktDephos	_kAktPhos_kcat	_kAktPhos_km	_kFourEBP1Dephos	_kFourEBP1Phos	_kIRS1Act	_kIRS1Inact	_kIRS1Phos	_kPI3KDephos	_kPI3KPhos	_kPras40Dephos	_kPras40Phos	_kS6KDephos	_kS6KPhos	_kTSC2Dephos	_kTSC2Phos	_kmTORC1Dephos	_kmTORC1LysToCyt	_kmTORC1Phos	_kmTORC1cytToLys	RSS
+0.00120688	4.20303	0.835074	2.58692	2.31641	0.34235	3.48104	9.99895	6.1427	0.00102121	6.73425	0.844427	8.367939999999999	5.55619	0.0147213	9.97827	0.0982616	0.0550313	1.078	0.26272	7.93664

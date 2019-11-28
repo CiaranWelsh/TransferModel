@@ -1,4 +1,6 @@
 import os
+import subprocess
+
 
 # Some important global parameters for use in sub packages
 WORKING_DIRECTORY = os.path.dirname(__file__)
@@ -60,29 +62,26 @@ REPLACEMENT_NAMES = {
 #  i.e. express these two cell lines as amounts relative to MCF7
 
 # flags that change program behaviour
-WRITE_COPASI_FORMATTED_DATA = False
+WRITE_COPASI_FORMATTED_DATA = True
 
 OPEN_WITH_COPASI = False
 
-CONFIGURE_PARAMETER_ESTIMATION = True
+CONFIGURE_PARAMETER_ESTIMATION = False
 if CONFIGURE_PARAMETER_ESTIMATION:
     WHICH_CELL_LINE = 'T47D'
     assert WHICH_CELL_LINE in ['T47D', 'ZR75']
 
-# configure the steady state data only
-CONFIGURE_PARAMETER_ESTIMATION_SS = False
+    # arguments for only when configuratoin parameter est is True
+    PLOT_PE = False
+
+    INSERT_BEST_PARAMETERS = False
+
+    OPEN_CONFIGURED_MODEL = True
 
 PLOT_SIMULATION = False
 
-PLOT_BEST_FIT_MCF7_AND_T47D = False
-
-PLOT_BEST_FIT_MCF7_AND_ZR75 = False
-
-TRANSFER_BETWEEN_MCF7_FROM_ZR75_AND_T47D = False
-
 RANDOM_ICS_SIMULATIONS = False
 
-CLUSTER = False
 
 
 

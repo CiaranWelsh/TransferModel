@@ -176,7 +176,7 @@ class GetData:
         #     data[tprotein] = data[total_proteins] + OFFSET_PARAMETER
         # return data
 
-    def interpolate(self, data=None, num=12):
+    def interpolate(self, data=None):
         """
         Interpolate the dataset usingg scipy.interpolate.interp1d. **kwargs get passed on to interp1d
         Args:
@@ -187,6 +187,7 @@ class GetData:
         Returns:
 
         """
+
         if self.kwargs.get('interpolate_kind') is None:
             return self.normalised_to_coomassie_blue()
         else:
@@ -379,7 +380,7 @@ class GetData:
         data = self.normalised_to_coomassie_blue()
         num = interp_kwargs.get('num')
         if num is not None:
-            data = self.interpolate(data, **interp_kwargs)
+            data = self.interpolate(data)
         data = data.stack()
         # data.columns = [f'{i}_obs' for i in data.columns]
         avg = data.groupby(['cell_line', 'time']).mean()
@@ -390,10 +391,10 @@ class GetData:
             # initial concentration parameter will be fit as a steady state without stimulation
             ics_as_ss = ics.copy()
             ics_as_ss = ics_as_ss.drop(total_proteins, axis=1)
-            ics_as_ss['Insulin_indep'] = 0
-            ics_as_ss['AA_indep'] = 0
             for i in ics_as_ss.columns:
                 ics_as_ss[f'{i}_indep'] = float(ics_as_ss[i])
+            ics_as_ss['Insulin_indep'] = 0
+            ics_as_ss['AA_indep'] = 0
             fname = os.path.join(
                 T47D_COPASI_FORMATED_DATA if self.cell_line == 'T47D' else ZR75_COPASI_FORMATED_DATA,
                 f'{prefix}_{label}_steady_state.csv'
@@ -508,14 +509,13 @@ class SteadyStateData(GetData):
         for i in list(set(mean.index.get_level_values(0))):
             d = pandas.DataFrame(mean.loc[i]).transpose()
             # d.columns = [f'{i}_obs' for i in d.columns]
-            d['Insulin_indep'] = 1
-            d['AA_indep'] = 1
             indeps = {}
             for j in d:
                 indeps[f'{j}_indep'] = d[j].values
+            d['Insulin_indep'] = 0
+            d['AA_indep'] = 0
             indeps = pandas.DataFrame(indeps, index=d.index)
             d = pandas.concat([d, indeps], axis=1)
-            print(d)
             fname = os.path.join(STEADTSTATE_COPASI_FORMATED_DATA, f'{i}.csv')
             d.to_csv(fname, index=False)
 
