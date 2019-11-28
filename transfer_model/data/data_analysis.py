@@ -23,7 +23,11 @@ class GetData:
     t47d_data = T47D_DATA
     steadystate_data = STEADY_STATE_DATA
 
-    def __init__(self, cell_line='ZR75', mean_or_median='mean', **kwargs):
+    def __init__(self, cell_line='ZR75', mean_or_median='mean',
+                 interpolation_kind=None, interpolation_num=None,
+                 **kwargs):
+        self.interpolation_num = interpolation_num
+        self.interpolation_kind = interpolation_kind
         if cell_line == 'ZR75':
             self.workbook = xlrd.open_workbook(self.zr75_data)
         elif cell_line == 'T47D':
@@ -187,23 +191,18 @@ class GetData:
         Returns:
 
         """
-
-        if self.kwargs.get('interpolate_kind') is None:
+        if self.interpolation_kind is None:
             return self.normalised_to_coomassie_blue()
-        else:
-            kind = self.kwargs.get('interpolation_kind')
 
-        if self.kwargs.get('interpolation_num') is None:
-            num = 12
-        else:
-            num = self.kwargs.get('interpolation_num')
+        if self.interpolation_num is None:
+            raise ValueError('You need to specify an argument to "interpolation_num"')
 
         if data is None:
             data = self.normalised_to_coomassie_blue()
 
         def interpolate1(x, y):
-            f = interp1d(x, y, kind=kind)
-            new_x = np.linspace(x[0], x[-1], num)
+            f = interp1d(x, y, kind=self.interpolation_kind)
+            new_x = np.linspace(x[0], x[-1], self.interpolation_num)
             new_y = f(new_x)
             return new_x, new_y
 
@@ -373,14 +372,13 @@ class GetData:
 
         return df
 
-    def to_copasi_format(self, prefix='not_interpolated', **interp_kwargs):
+    def to_copasi_format(self, prefix='not_interpolated'):
         total_proteins = ['IRS1', 'Akt', 'TSC2', 'S6K', 'FourEBP1',
                           'PRAS40', 'p38', 'ERK']
         # total_proteins = [f'{i}_obs' for i in total_proteins]
         data = self.normalised_to_coomassie_blue()
-        num = interp_kwargs.get('num')
-        if num is not None:
-            data = self.interpolate(data)
+        data = self.interpolate(data)
+        print(data)
         data = data.stack()
         # data.columns = [f'{i}_obs' for i in data.columns]
         avg = data.groupby(['cell_line', 'time']).mean()
@@ -399,6 +397,10 @@ class GetData:
                 T47D_COPASI_FORMATED_DATA if self.cell_line == 'T47D' else ZR75_COPASI_FORMATED_DATA,
                 f'{prefix}_{label}_steady_state.csv'
             )
+            for i in [T47D_COPASI_FORMATED_DATA, ZR75_COPASI_FORMATED_DATA]:
+                if not os.path.isdir(i):
+                    os.makedirs(i)
+
             ics_as_ss.to_csv(fname, index=False)
 
 
