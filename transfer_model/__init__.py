@@ -16,7 +16,7 @@ STEADTSTATE_COPASI_FORMATED_DATA = os.path.join(COPASI_FORMATTED_DATA_DIRECTORY,
 MODELS_DIRECTORY = os.path.join(WORKING_DIRECTORY, 'models')
 SIMULATION_DIRECTORY = os.path.join(MODELS_DIRECTORY, 'simulation_data')
 RANDOM_ICS_DIR = os.path.join(SIMULATION_DIRECTORY, 'random_ics_stuff')
-PARAMETER_ESTIMATION_CONFIG_YAML = os.path.join(MODELS_DIRECTORY, 'param_est_config.yaml')
+PARAMETER_ESTIMATION_CONFIG_YAML = os.path.join(MODELS_DIRECTORY, 'pe_config.yaml')
 
 # some important filenames that are used in subdirectories
 EXPERIMENTAL_DATA_FILE = os.path.join(DATA_DIRECTORY, 'experimental_data_with_norm_to_max.xlsx')
@@ -69,9 +69,14 @@ OPEN_WITH_COPASI = False
 CONFIGURE_PARAMETER_ESTIMATION = True
 if CONFIGURE_PARAMETER_ESTIMATION:
     WHICH_CELL_LINE = 'T47D'
-    assert WHICH_CELL_LINE in ['T47D', 'ZR75']
 
     # arguments for only when configuratoin parameter est is True
+    assert WHICH_CELL_LINE in ['T47D', 'ZR75']
+
+    # use the yaml config
+    USE_YAML = False
+    # When false, will autogen the config
+
     PLOT_PE = False
 
     INSERT_BEST_PARAMETERS = False

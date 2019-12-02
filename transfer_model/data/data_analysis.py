@@ -25,7 +25,9 @@ class GetData:
 
     def __init__(self, cell_line='ZR75', mean_or_median='mean',
                  interpolation_kind=None, interpolation_num=None,
+                 replacement_names_for_copasi_headers={},
                  **kwargs):
+        self.replacement_names_for_copasi_headers = replacement_names_for_copasi_headers
         self.interpolation_num = interpolation_num
         self.interpolation_kind = interpolation_kind
         if cell_line == 'ZR75':
@@ -93,6 +95,7 @@ class GetData:
 
         df = df.transpose()
 
+        # print(df.loc['T47D', 'TSC2pT1462'])
         # drop empty columns
         df = df.replace('None', np.nan, regex=True)
         df = df.dropna(axis=1, how='all')
@@ -200,11 +203,15 @@ class GetData:
         if data is None:
             data = self.normalised_to_coomassie_blue()
 
-        def interpolate1(x, y):
-            f = interp1d(x, y, kind=self.interpolation_kind)
-            new_x = np.linspace(x[0], x[-1], self.interpolation_num)
+        def interpolate1(x, y, kind, num):
+            x = np.log10(x)
+            # replace the 0th time element to 0, since log(0) = -inf
+            x[0] = 0
+            f = interp1d(x, y, kind=kind)
+            new_x = np.linspace(x[0], x[-1], num)
             new_y = f(new_x)
-            return new_x, new_y
+            # deal with the '0' problem
+            return [0] + list(10 ** new_x[1:]), new_y
 
         outer_dct = {}
         for cell_line in list(set(data.index.get_level_values(0))):
@@ -217,9 +224,10 @@ class GetData:
                     df3 = df2[[repeat]]
                     x = list(df3.index)
                     y = df3.values
+
                     # flatten
                     y = [item for sublist in y for item in sublist]
-                    newx, newy = interpolate1(x, y)
+                    newx, newy = interpolate1(x, y, self.interpolation_kind, self.interpolation_num)
                     new_df = pandas.DataFrame(newx, newy)
                     new_df.index.name = 'time'
                     new_df.columns = [repeat]
@@ -233,8 +241,7 @@ class GetData:
         return df[sorted(df.columns)]
 
     def plot(self, data=None, plot_selection={}, subplot_titles={},
-             ncols=5, wspace=0.05, hspace=0.2, fname=None, **kwargs):
-
+             ncols=5, wspace=0.4, hspace=0.4, fname=None, **kwargs):
         if plot_selection == {}:
             plot_selection = {
                 'IRS1': ['IRS1', 'IRS1pS636_639'],
@@ -279,13 +286,23 @@ class GetData:
         if data is None:
             print('getting data from normalised to coomassie blue')
             data = self.normalised_to_coomassie_blue()
-        data = data.stack()
-        data.index.names = ['cell_line', 'time', 'repeat']
+        from copy import deepcopy
+        # store for later
+        original_data = deepcopy(data)
+        interp_data = self.interpolate(data)
 
-        avg = data.groupby(['cell_line', 'time']).mean()
-        sem = data.groupby(['cell_line', 'time']).sem()
+        def process_data(data):
+            data = data.stack()
+            data.index.names = ['cell_line', 'time', 'repeat']
 
-        line_styles = {'MCF7': '-', 'ZR75': '--', 'T47D': '-.',
+            avg = data.groupby(['cell_line', 'time']).mean()
+            sem = data.groupby(['cell_line', 'time']).sem()
+            return avg, sem
+
+        original_avg, original_sem = process_data(original_data)
+        interp_avg, interp_sem = process_data(interp_data)
+
+        line_styles = {'MCF7': '-', 'ZR75': '--', 'T47D': '--',
                        'MCF7_T47D': '-', 'MCF7_ZR75': '--'}
 
         import matplotlib.lines as mlines
@@ -296,18 +313,25 @@ class GetData:
             ax = plt.subplot(nrows, ncols, i + 1)
             # print(i, title, antibodies)
             cell_lines = []
-            for cell_line in list(set(avg.index.get_level_values(0))):
+            for cell_line in list(set(interp_avg.index.get_level_values(0))):
                 # colours = iter(seaborn.color_palette("hls", len(antibodies)))
                 colours = iter(['black', 'red', 'green', 'blue', 'black', 'purple', 'yellow'])
                 legend_markers = []
                 for ab in antibodies:
                     c = next(colours)
-                    plot_data = avg.loc[cell_line]
+                    plot_data = interp_avg.loc[cell_line]
+                    orig_plot_data = original_avg.loc[cell_line]
                     plt.errorbar(
                         list(plot_data.index),
-                        plot_data[ab], yerr=sem.loc[(cell_line), (ab)],
+                        plot_data[ab], yerr=interp_sem.loc[(cell_line), (ab)],
                         marker='.', ls=line_styles[cell_line],
                         capsize=2, color=c
+                    )
+                    plt.errorbar(
+                        list(orig_plot_data.index),
+                        orig_plot_data[ab],
+                        marker='x', ls="None",
+                        capsize=2, color='red',
                     )
                     legend_markers.append(
                         mpatch.Patch(color=c, label=ab)
@@ -318,18 +342,21 @@ class GetData:
                 # plt.gca().add_artist(legend1)
                 cell_lines.append(cell_line)
         # bbox_to_anchor (move to left, move down, )
-        fig.legend(bbox_to_anchor=(0.0, 1.025, 0.35, 0.00), handles=[
+        # fig.legend(bbox_to_anchor=(0.0, 1.025, 0.35, 0.00), handles=[
+        fig.legend(handles=[
             mlines.Line2D([], [], color='black', linestyle=line_styles[i],
                           label=i) for i in cell_lines],
-                   # mode='expand',
-                   borderaxespad=0.1, ncol=2,
-                   loc='upper center', fontsize=25)
-        plt.show()
+            # mode='expand',
+            borderaxespad=0.1, ncol=2,
+            loc=(0.06, 0.92), fontsize=25)
+        plt.subplots_adjust(wspace=wspace, hspace=hspace)
         # plt.gca().annotate('Time (min)', xy=(0.1, 0.5), xytext=(0.1, 0.5), xycoords='figure fraction')
         # plt.suptitle('Insulin Stimulation: {}'.format(cell_line))
         if fname is None:
             fname = os.path.join(
                 DATA_DIRECTORY, 'experimental_data_ZR75.png' if 'ZR75' in cell_lines else 'experimental_data_T47D.png')
+
+        # plt.show()
         fig.savefig(fname, dpi=300, bbox_inches='tight')
 
     def get_initial_conc_params(self):
@@ -375,13 +402,16 @@ class GetData:
     def to_copasi_format(self, prefix='not_interpolated'):
         total_proteins = ['IRS1', 'Akt', 'TSC2', 'S6K', 'FourEBP1',
                           'PRAS40', 'p38', 'ERK']
+        total_proteins = [f'{i}_obs' for i in total_proteins]
+        # observables_list = None
         # total_proteins = [f'{i}_obs' for i in total_proteins]
         data = self.normalised_to_coomassie_blue()
         data = self.interpolate(data)
-        print(data)
         data = data.stack()
         # data.columns = [f'{i}_obs' for i in data.columns]
         avg = data.groupby(['cell_line', 'time']).mean()
+        avg.columns = [f'{i}_obs' for i in avg.columns]
+
         df_dct = {}
         ics_as_ss = {}
         for label, df in avg.groupby(level=['cell_line']):
@@ -402,7 +432,6 @@ class GetData:
                     os.makedirs(i)
 
             ics_as_ss.to_csv(fname, index=False)
-
 
             # time series data
             ics = pandas.concat([ics] * df.shape[0], axis=0)
@@ -520,6 +549,3 @@ class SteadyStateData(GetData):
             d = pandas.concat([d, indeps], axis=1)
             fname = os.path.join(STEADTSTATE_COPASI_FORMATED_DATA, f'{i}.csv')
             d.to_csv(fname, index=False)
-
-
-

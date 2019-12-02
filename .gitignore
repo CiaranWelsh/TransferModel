@@ -2,3 +2,9 @@
 .idea
 .pyc
 __pycache__
+ParameterEstimationData
+*.out
+*.zip
+
+
+

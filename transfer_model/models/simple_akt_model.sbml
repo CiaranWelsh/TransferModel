@@ -465,71 +465,141 @@
     </listOfCompartments>
     <listOfSpecies>
       <species id="IRS1" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="IRS1a" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="IRS1pS636_639" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="IRS1a" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="IRS1pS636_639" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="Akt" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="AktpT308" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="TSC2" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="AktpT308" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="TSC2" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="TSC2pT1462" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="PRAS40" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="PRAS40pT246" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="PRAS40pT246" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="S6K" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="S6KpT389" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="S6KpT389" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="FourEBP1" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="FourEBP1pT37_46" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="PI3K" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="pPI3K" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="pmTORC1" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="mTORC1cyt" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="mTORC1lys" compartment="Cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="FourEBP1pT37_46" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="_PI3K" compartment="Cell" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="pPI3K" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="pmTORC1" compartment="Cell" initialConcentration="0.1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="_mTORC1" compartment="Cell" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="Insulin" value="1" constant="true"/>
       <parameter id="AA" value="1" constant="true"/>
+      <parameter id="_mTORC1cyt" value="10" constant="true"/>
+      <parameter id="mTORC1lys" value="0.1" constant="true"/>
+      <parameter id="_kIRS1In" value="1" constant="true"/>
+      <parameter id="_kIRS1Out" value="1" constant="true"/>
+      <parameter id="_kIRS1Out2" value="1" constant="true"/>
+      <parameter id="_kIRS1ActBasal" value="1" constant="true"/>
       <parameter id="_kIRS1Act_km" value="1" constant="true"/>
       <parameter id="_kIRS1Act_kcat" value="1" constant="true"/>
+      <parameter id="kIRS1Inact" value="1" constant="true"/>
       <parameter id="_kIRS1Phos_km" value="1" constant="true"/>
       <parameter id="_kIRS1Phos_kcat" value="1" constant="true"/>
-      <parameter id="_kIRS1Inact" value="1" constant="true"/>
-      <parameter id="_kIRS1Out2" value="1" constant="true"/>
       <parameter id="_kPI3KPhos_km" value="1" constant="true"/>
       <parameter id="_kPI3KPhos_kcat" value="1" constant="true"/>
-      <parameter id="_kPI3KDephos" value="1" constant="true"/>
+      <parameter id="kPI3KDephos" value="1" constant="true"/>
       <parameter id="_kAktPhos_km" value="1" constant="true"/>
       <parameter id="_kAktPhos_kcat" value="1" constant="true"/>
-      <parameter id="_kAktDephos" value="1" constant="true"/>
+      <parameter id="kAktDephos" value="1" constant="true"/>
+      <parameter id="_kAktIn" value="1" constant="true"/>
+      <parameter id="_kAktOut" value="1" constant="true"/>
       <parameter id="_kTSC2Phos_km" value="1" constant="true"/>
       <parameter id="_kTSC2Phos_kcat" value="1" constant="true"/>
       <parameter id="_kTSC2Dephos" value="1" constant="true"/>
-      <parameter id="_kmTORC1cytToLys" value="1" constant="true"/>
-      <parameter id="_kmTORC1LysToCyt" value="1" constant="true"/>
-      <parameter id="_kmTORC1Phos_km" value="1" constant="true"/>
-      <parameter id="_kmTORC1Phos_kcat" value="1" constant="true"/>
-      <parameter id="_kmTORC1Dephos" value="1" constant="true"/>
-      <parameter id="_kPras40Phos_km" value="1" constant="true"/>
-      <parameter id="_kPras40Phos_kcat" value="1" constant="true"/>
-      <parameter id="_kPras40Dephos" value="1" constant="true"/>
-      <parameter id="_kFourEBP1Phos_km" value="1" constant="true"/>
-      <parameter id="_kFourEBP1Phos_kcat" value="1" constant="true"/>
-      <parameter id="_kFourEBP1Dephos" value="1" constant="true"/>
-      <parameter id="_kS6KPhos_km" value="1" constant="true"/>
-      <parameter id="_kS6KPhos_kcat" value="1" constant="true"/>
-      <parameter id="_kS6KDephos" value="1" constant="true"/>
-      <parameter id="_kIRS1In" value="1" constant="true"/>
-      <parameter id="_kIRS1Out" value="1" constant="true"/>
-      <parameter id="_kAktIn" value="1" constant="true"/>
-      <parameter id="_kAktOut" value="1" constant="true"/>
       <parameter id="_kTSCIn" value="1" constant="true"/>
       <parameter id="_kTSCOut" value="1" constant="true"/>
+      <parameter id="_kmTORC1PhosBasal" value="1" constant="true"/>
+      <parameter id="_kmTORC1Phos_km" value="1" constant="true"/>
+      <parameter id="_kmTORC1Phos_vmax" value="1" constant="true"/>
+      <parameter id="_kmTORC1Dephos_km" value="1" constant="true"/>
+      <parameter id="_kmTORC1Dephos_kcat" value="1" constant="true"/>
       <parameter id="_kPras40In" value="1" constant="true"/>
       <parameter id="_kPras40Out" value="1" constant="true"/>
+      <parameter id="_kPras40Phos_km" value="1" constant="true"/>
+      <parameter id="_kPras40Phos_kcat" value="1" constant="true"/>
+      <parameter id="kPras40Dephos" value="1" constant="true"/>
       <parameter id="_kFourEBP1In" value="1" constant="true"/>
       <parameter id="_kFourEBP1Out" value="1" constant="true"/>
+      <parameter id="_kFourEBP1Phos_km" value="1" constant="true"/>
+      <parameter id="_kFourEBP1Phos_kcat" value="1" constant="true"/>
+      <parameter id="kFourEBP1Dephos" value="1" constant="true"/>
       <parameter id="_kS6KIn" value="1" constant="true"/>
       <parameter id="_kS6KOut" value="1" constant="true"/>
-      <parameter id="_kIRS1ActBasal" value="0.1" constant="true"/>
-      <parameter id="_kmTORC1cytToLysBasal" value="0.1" constant="true"/>
+      <parameter id="_kS6KPhos_km" value="1" constant="true"/>
+      <parameter id="_kS6KPhos_kcat" value="1" constant="true"/>
+      <parameter id="kS6KDephos" value="1" constant="true"/>
+      <parameter id="_IRS1pS636_639_sf" value="1" constant="true"/>
+      <parameter id="_AktpT308_sf" value="1" constant="true"/>
+      <parameter id="_TSC2pT1462_sf" value="1" constant="true"/>
+      <parameter id="_PRAS40pT246_sf" value="1" constant="true"/>
+      <parameter id="_FourEBP1pT37_46_sf" value="1" constant="true"/>
+      <parameter id="_S6KpT389_sf" value="1" constant="true"/>
+      <parameter id="IRS1pS636_639_obs" constant="false"/>
+      <parameter id="AktpT308_obs" constant="false"/>
+      <parameter id="TSC2pT1462_obs" constant="false"/>
+      <parameter id="PRAS40pT246_obs" constant="false"/>
+      <parameter id="FourEBP1pT37_46_obs" constant="false"/>
+      <parameter id="S6KpT389_obs" constant="false"/>
+      <parameter id="mTORC1" constant="true"/>
+      <parameter id="TSC" constant="true"/>
     </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="IRS1pS636_639_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> IRS1pS636_639 </ci>
+            <ci> _IRS1pS636_639_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="AktpT308_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> AktpT308 </ci>
+            <ci> _AktpT308_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="TSC2pT1462_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> TSC2pT1462 </ci>
+            <ci> _TSC2pT1462_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="PRAS40pT246_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> PRAS40pT246 </ci>
+            <ci> _PRAS40pT246_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FourEBP1pT37_46_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> FourEBP1pT37_46 </ci>
+            <ci> _FourEBP1pT37_46_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="S6KpT389_obs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> S6KpT389 </ci>
+            <ci> _S6KpT389_sf </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
     <listOfReactions>
       <reaction id="R1In" reversible="false" fast="false">
         <listOfProducts>
@@ -628,7 +698,7 @@
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kIRS1Inact </ci>
+              <ci> kIRS1Inact </ci>
               <ci> IRS1a </ci>
             </apply>
           </math>
@@ -662,7 +732,7 @@
       </reaction>
       <reaction id="R3f" reversible="false" fast="false">
         <listOfReactants>
-          <speciesReference species="PI3K" stoichiometry="1" constant="true"/>
+          <speciesReference species="_PI3K" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="pPI3K" stoichiometry="1" constant="true"/>
@@ -679,7 +749,7 @@
                 <ci> MMWithKcat </ci>
                 <ci> _kPI3KPhos_km </ci>
                 <ci> _kPI3KPhos_kcat </ci>
-                <ci> PI3K </ci>
+                <ci> _PI3K </ci>
                 <ci> IRS1a </ci>
               </apply>
             </apply>
@@ -691,14 +761,14 @@
           <speciesReference species="pPI3K" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="PI3K" stoichiometry="1" constant="true"/>
+          <speciesReference species="_PI3K" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kPI3KDephos </ci>
+              <ci> kPI3KDephos </ci>
               <ci> pPI3K </ci>
             </apply>
           </math>
@@ -730,6 +800,28 @@
           </math>
         </kineticLaw>
       </reaction>
+      <reaction id="R4b" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="AktpT308" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Akt" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="pPI3K"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Cell </ci>
+              <ci> kAktDephos </ci>
+              <ci> pPI3K </ci>
+              <ci> AktpT308 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
       <reaction id="R4In" reversible="false" fast="false">
         <listOfProducts>
           <speciesReference species="Akt" stoichiometry="1" constant="true"/>
@@ -755,28 +847,6 @@
               <ci> Cell </ci>
               <ci> _kAktOut </ci>
               <ci> Akt </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="R4b" reversible="false" fast="false">
-        <listOfReactants>
-          <speciesReference species="AktpT308" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="Akt" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference species="pPI3K"/>
-        </listOfModifiers>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> Cell </ci>
-              <ci> _kAktDephos </ci>
-              <ci> pPI3K </ci>
-              <ci> AktpT308 </ci>
             </apply>
           </math>
         </kineticLaw>
@@ -854,71 +924,53 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="R6f" reversible="false" fast="false">
+      <reaction id="R6Basal" reversible="false" fast="false">
         <listOfReactants>
-          <speciesReference species="mTORC1cyt" stoichiometry="1" constant="true"/>
+          <speciesReference species="_mTORC1" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="mTORC1lys" stoichiometry="1" constant="true"/>
+          <speciesReference species="pmTORC1" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kmTORC1cytToLys </ci>
-              <ci> mTORC1cyt </ci>
-              <ci> AA </ci>
+              <ci> _kmTORC1PhosBasal </ci>
+              <ci> _mTORC1 </ci>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="R6Basal" reversible="false" fast="false">
+      <reaction id="R6f" reversible="false" fast="false">
         <listOfReactants>
-          <speciesReference species="mTORC1cyt" stoichiometry="1" constant="true"/>
+          <speciesReference species="_mTORC1" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="mTORC1lys" stoichiometry="1" constant="true"/>
+          <speciesReference species="pmTORC1" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kmTORC1cytToLysBasal </ci>
-              <ci> mTORC1cyt </ci>
+              <apply>
+                <ci> MM </ci>
+                <ci> _kmTORC1Phos_km </ci>
+                <ci> _kmTORC1Phos_vmax </ci>
+                <ci> mTORC1 </ci>
+              </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
       <reaction id="R6b" reversible="false" fast="false">
         <listOfReactants>
-          <speciesReference species="mTORC1lys" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mTORC1cyt" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> Cell </ci>
-              <ci> _kmTORC1LysToCyt </ci>
-              <ci> mTORC1lys </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="R7f" reversible="false" fast="false">
-        <listOfReactants>
-          <speciesReference species="mTORC1lys" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
           <speciesReference species="pmTORC1" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="_mTORC1" stoichiometry="1" constant="true"/>
         </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference species="TSC2"/>
-        </listOfModifiers>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -926,29 +978,11 @@
               <ci> Cell </ci>
               <apply>
                 <ci> MMWithKcat </ci>
-                <ci> _kmTORC1Phos_km </ci>
-                <ci> _kmTORC1Phos_kcat </ci>
-                <ci> mTORC1lys </ci>
-                <ci> TSC2 </ci>
+                <ci> _kmTORC1Dephos_km </ci>
+                <ci> _kmTORC1Dephos_kcat </ci>
+                <ci> pmTORC1 </ci>
+                <ci> TSC </ci>
               </apply>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="R7b" reversible="false" fast="false">
-        <listOfReactants>
-          <speciesReference species="pmTORC1" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mTORC1lys" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> Cell </ci>
-              <ci> _kmTORC1Dephos </ci>
-              <ci> pmTORC1 </ci>
             </apply>
           </math>
         </kineticLaw>
@@ -1020,7 +1054,7 @@
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kPras40Dephos </ci>
+              <ci> kPras40Dephos </ci>
               <ci> PRAS40pT246 </ci>
             </apply>
           </math>
@@ -1093,13 +1127,27 @@
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kFourEBP1Dephos </ci>
+              <ci> kFourEBP1Dephos </ci>
               <ci> FourEBP1pT37_46 </ci>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
       <reaction id="R10In" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="S6K" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Cell </ci>
+              <ci> _kS6KIn </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="R10Out" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="S6K" stoichiometry="1" constant="true"/>
         </listOfReactants>
@@ -1152,7 +1200,7 @@
             <apply>
               <times/>
               <ci> Cell </ci>
-              <ci> _kS6KDephos </ci>
+              <ci> kS6KDephos </ci>
               <ci> S6KpT389 </ci>
             </apply>
           </math>

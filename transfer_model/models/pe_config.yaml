@@ -1,0 +1,758 @@
+datasets:
+    experiments:
+        interpolated_T47D:
+            affected_models:
+            - simple_akt_model
+            filename: /home/ncw135/Documents/MesiSTRAT2/TransferModel/transfer_model/data/CopasiFormattedData/T47DSheet/interpolated_T47D.csv
+#            filename: /mnt/nfs/home/ncw135/TransferModel/transfer_model/data/CopasiFormattedData/T47DSheet/interpolated_T47D.csv
+            mappings:
+                AA_indep:
+                    model_object: AA_indep
+                    object_type: GlobalQuantity
+                    role: dependent
+                AktpS473_indep:
+                    model_object: AktpS473_indep
+                    object_type: list
+                    role: dependent
+                AktpS473_obs:
+                    model_object: AktpS473_obs
+                    object_type: list
+                    role: dependent
+                AktpT308_indep:
+                    model_object: AktpT308_indep
+                    object_type: Metabolite
+                    role: dependent
+                AktpT308_obs:
+                    model_object: AktpT308_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                Coomassie_staining:
+                    model_object: Coomassie_staining
+                    object_type: list
+                    role: dependent
+                Coomassie_staining_indep:
+                    model_object: Coomassie_staining_indep
+                    object_type: list
+                    role: dependent
+                ERKpT202_Y204:
+                    model_object: ERKpT202_Y204
+                    object_type: list
+                    role: dependent
+                ERKpT202_Y204_indep:
+                    model_object: ERKpT202_Y204_indep
+                    object_type: list
+                    role: dependent
+                ER_alpha:
+                    model_object: ER_alpha
+                    object_type: list
+                    role: dependent
+                ER_alpha_indep:
+                    model_object: ER_alpha_indep
+                    object_type: list
+                    role: dependent
+                FourEBP1pT37_46_indep:
+                    model_object: FourEBP1pT37_46_indep
+                    object_type: Metabolite
+                    role: dependent
+                FourEBP1pT37_46_obs:
+                    model_object: FourEBP1pT37_46_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                GAPDH:
+                    model_object: GAPDH
+                    object_type: list
+                    role: dependent
+                GAPDH_indep:
+                    model_object: GAPDH_indep
+                    object_type: list
+                    role: dependent
+                IRS1pS636_639_indep:
+                    model_object: IRS1pS636_639_indep
+                    object_type: Metabolite
+                    role: dependent
+                IRS1pS636_639_obs:
+                    model_object: IRS1pS636_639_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                Insulin_indep:
+                    model_object: Insulin_indep
+                    object_type: GlobalQuantity
+                    role: dependent
+                PRAS40pS183_indep:
+                    model_object: PRAS40pS183_indep
+                    object_type: list
+                    role: dependent
+                PRAS40pS183_obs:
+                    model_object: PRAS40pS183_obs
+                    object_type: list
+                    role: dependent
+                PRAS40pT246_indep:
+                    model_object: PRAS40pT246_indep
+                    object_type: Metabolite
+                    role: dependent
+                PRAS40pT246_obs:
+                    model_object: PRAS40pT246_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                S6KpT229_indep:
+                    model_object: S6KpT229_indep
+                    object_type: list
+                    role: dependent
+                S6KpT229_obs:
+                    model_object: S6KpT229_obs
+                    object_type: list
+                    role: dependent
+                S6KpT389_indep:
+                    model_object: S6KpT389_indep
+                    object_type: Metabolite
+                    role: dependent
+                S6KpT389_obs:
+                    model_object: S6KpT389_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                TSC2pT1462_indep:
+                    model_object: TSC2pT1462_indep
+                    object_type: Metabolite
+                    role: dependent
+                TSC2pT1462_obs:
+                    model_object: TSC2pT1462_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                p38_pT180_Y182:
+                    model_object: p38_pT180_Y182
+                    object_type: list
+                    role: dependent
+                p38_pT180_Y182_indep:
+                    model_object: p38_pT180_Y182_indep
+                    object_type: list
+                    role: dependent
+                time:
+                    model_object: time
+                    role: time
+            normalize_weights_per_experiment: true
+            separator: ','
+        interpolated_T47D_steady_state:
+            affected_models:
+            - simple_akt_model
+            filename: /home/ncw135/Documents/MesiSTRAT2/TransferModel/transfer_model/data/CopasiFormattedData/T47DSheet/interpolated_T47D_steady_state.csv
+#            filename: /mnt/nfs/home/ncw135/TransferModel/transfer_model/data/CopasiFormattedData/T47DSheet/interpolated_T47D_steady_state.csv
+            mappings:
+                AA_indep:
+                    model_object: AA_indep
+                    object_type: GlobalQuantity
+                    role: dependent
+                AktpS473_indep:
+                    model_object: AktpS473_indep
+                    object_type: list
+                    role: dependent
+                AktpS473_obs:
+                    model_object: AktpS473_obs
+                    object_type: list
+                    role: dependent
+                AktpT308_indep_obs:
+                    model_object: AktpT308_indep_obs
+                    object_type: list
+                    role: dependent
+                AktpT308_obs:
+                    model_object: AktpT308_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                Coomassie_staining:
+                    model_object: Coomassie_staining
+                    object_type: list
+                    role: dependent
+                Coomassie_staining_indep:
+                    model_object: Coomassie_staining_indep
+                    object_type: list
+                    role: dependent
+                ERKpT202_Y204:
+                    model_object: ERKpT202_Y204
+                    object_type: list
+                    role: dependent
+                ERKpT202_Y204_indep:
+                    model_object: ERKpT202_Y204_indep
+                    object_type: list
+                    role: dependent
+                ER_alpha:
+                    model_object: ER_alpha
+                    object_type: list
+                    role: dependent
+                ER_alpha_indep:
+                    model_object: ER_alpha_indep
+                    object_type: list
+                    role: dependent
+                FourEBP1pT37_46_indep:
+                    model_object: FourEBP1pT37_46_indep
+                    object_type: Metabolite
+                    role: dependent
+                FourEBP1pT37_46_obs:
+                    model_object: FourEBP1pT37_46_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                GAPDH:
+                    model_object: GAPDH
+                    object_type: list
+                    role: dependent
+                GAPDH_indep:
+                    model_object: GAPDH_indep
+                    object_type: list
+                    role: dependent
+                IRS1pS636_639_indep:
+                    model_object: IRS1pS636_639_indep
+                    object_type: Metabolite
+                    role: dependent
+                IRS1pS636_639_obs:
+                    model_object: IRS1pS636_639_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                Insulin_indep:
+                    model_object: Insulin_indep
+                    object_type: GlobalQuantity
+                    role: dependent
+                PRAS40pS183_indep:
+                    model_object: PRAS40pS183_indep
+                    object_type: list
+                    role: dependent
+                PRAS40pS183_obs:
+                    model_object: PRAS40pS183_obs
+                    object_type: list
+                    role: dependent
+                PRAS40pT246:
+                    model_object: PRAS40pT246
+                    object_type: Metabolite
+                    role: dependent
+                PRAS40pT246_indep:
+                    model_object: PRAS40pT246_indep
+                    object_type: Metabolite
+                    role: dependent
+                S6KpT229:
+                    model_object: S6KpT229
+                    object_type: list
+                    role: dependent
+                S6KpT229_indep:
+                    model_object: S6KpT229_indep
+                    object_type: list
+                    role: dependent
+                S6KpT389_indep:
+                    model_object: S6KpT389_indep
+                    object_type: Metabolite
+                    role: dependent
+                S6KpT389_obs:
+                    model_object: S6KpT389_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                TSC2pT1462_indep:
+                    model_object: TSC2pT1462_indep
+                    object_type: Metabolite
+                    role: dependent
+                TSC2pT1462_obs:
+                    model_object: TSC2pT1462_obs
+                    object_type: GlobalQuantity
+                    role: dependent
+                p38_pT180_Y182:
+                    model_object: p38_pT180_Y182
+                    object_type: list
+                    role: dependent
+                p38_pT180_Y182_indep:
+                    model_object: p38_pT180_Y182_indep
+                    object_type: list
+                    role: dependent
+            normalize_weights_per_experiment: true
+            separator: ','
+    validations: {}
+items:
+    fit_items:
+        _AktpT308_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _FourEBP1pT37_46_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _IRS1pS636_639_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _PI3K:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _PRAS40pT246_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _S6KpT389_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _TSC2pT1462_sf:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 100
+        _kAktIn:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kAktOut:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.01
+            start_value: 0.1
+            upper_bound: 10
+        _kAktPhos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kAktPhos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kFourEBP1In:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kFourEBP1Out:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kFourEBP1Phos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kFourEBP1Phos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1ActBasal:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Act_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Act_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.01
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1In:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Out:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Out2:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Phos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kIRS1Phos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPI3KPhos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPI3KPhos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPras40In:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPras40Out:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPras40Phos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kPras40Phos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kS6KIn:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kS6KOut:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kS6KPhos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kS6KPhos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kTSC2Dephos:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kTSC2Phos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kTSC2Phos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.01
+            start_value: 0.1
+            upper_bound: 10
+        _kTSCIn:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.01
+            start_value: 0.1
+            upper_bound: 10
+        _kTSCOut:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kmTORC1LysToCyt:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kmTORC1Phos_kcat:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kmTORC1Phos_km:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kmTORC1cytToLys:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _kmTORC1cytToLysBasal:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+        _mTORC1cyt:
+            affected_experiments:
+            - interpolated_T47D_steady_state
+            - interpolated_T47D
+            affected_models:
+            - simple_akt_model
+            affected_validation_experiments: []
+            lower_bound: 0.1
+            start_value: 0.1
+            upper_bound: 10
+models:
+    simple_akt_model:
+        copasi_file: /home/ncw135/Documents/MesiSTRAT2/TransferModel/transfer_model/models/simple_akt_model.cps
+        # copasi_file: /mnt/nfs/home/ncw135/TransferModel/transfer_model/models/simple_akt_model.cps
+        model: Model(name=NoName, time_unit=s, volume_unit=l, quantity_unit=mol)
+settings:
+    calculate_statistics: false
+    config_filename: config.yml
+    context: s
+    cooling_factor: 0.85
+    copy_number: 1
+    create_parameter_sets: false
+    cross_validation_depth: 1
+    fit: 1
+    iteration_limit: 3000
+    lower_bound: 0.1
+    max_active: 3
+    method: particle_swarm
+    number_of_generations: 400
+    number_of_iterations: 100000
+    overwrite_config_file: false
+    pe_number: 1
+    pf: 0.475
+    pl_lower_bound: 1000
+    pl_upper_bound: 1000
+    population_size: 100
+    prefix: _
+    problem: Problem12_WiderBoundaries
+    quantity_type: concentration
+    random_number_generator: 1
+    randomize_start_values: true
+    report_name: PEData.txt
+    results_directory: ParameterEstimationData
+    rho: 0.2
+    run_mode: false
+    save: false
+    scale: 10
+    seed: 0
+    start_temperature: 1
+    start_value: 0.1
+    starting_parameter_sets: null
+    std_deviation: 1.0e-06
+    swarm_size: 100
+    tolerance: 1.0e-10
+    update_model: false
+    upper_bound: 10
+    use_config_start_values: false
+    validation_threshold: 5
+    validation_weight: 1
+    weight_method: mean_squared
+    # for local machine
+    working_directory: /home/ncw135/Documents/MesiSTRAT2/TransferModel/transfer_model/models
+    # for cluster machine
+#    working_directory: /mnt/nfs/home/ncw135/TransferModel/transfer_model/models/

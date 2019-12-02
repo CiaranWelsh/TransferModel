@@ -433,14 +433,15 @@ if __name__ == '__main__':
     py_mod = tasks.TimeCourse(py_mod, start=0, end=150).model
 
     if WRITE_COPASI_FORMATTED_DATA:
+        raise ValueError('remember you have manually modified these files')
         from transfer_model.data.data_analysis import SteadyStateData
 
         gd_zr75 = GetData('ZR75', 'mean',
-                          interpolation_kind='cubic',
-                          interpolation_num=36).to_copasi_format(prefix='interpolated')
+                          interpolation_kind='linear',
+                          interpolation_num=12).to_copasi_format(prefix='interpolated')
         gd_t47d = GetData('T47D', 'mean',
                           interpolation_kind='cubic',
-                          interpolation_num=36).to_copasi_format(
+                          interpolation_num=12).to_copasi_format(
             prefix='interpolated')
 
     if OPEN_WITH_COPASI:
@@ -458,34 +459,48 @@ if __name__ == '__main__':
         # swap middle files so they are in the same order
         # exp_files[1], exp_files[2] = exp_files[2], exp_files[1]
 
-        with tasks.ParameterEstimation.Context(py_mod, exp_files, parameters='g', context='s') as context:
-            context.set('run_mode', 'slurm')
-            context.set('copy_number', 528)
-            context.set('separator', ',')
-            context.set('prefix', '_')
-            context.set('lower_bound', 0.1)
-            context.set('upper_bound', 10)
-            context.set('randomize_start_values', True)
-            context.set('method', 'hooke_jeeves')
-            context.set('number_of_generations', 400)
-            context.set('population_size', 100)
-            context.set('swarm_size', 100)
-            context.set('iteration_limit', 100)
-            context.set('tolerance', 1e-10)
-            context.set('problem', 'Problem9_FixedSSData')
-            context.set('fit', 1)
-            config = context.get_config()
+        if not USE_YAML:
+            with tasks.ParameterEstimation.Context(py_mod, exp_files, parameters='gm', context='s') as context:
+                context.set('run_mode', 'slurm')
+                context.set('copy_number', 300)
+                context.set('separator', ',')
+                context.set('prefix', '_')
+                context.set('lower_bound', 0.05)
+                context.set('upper_bound', 20)
+                context.set('randomize_start_values', True)
+                context.set('method', 'particle_swarm')
+                context.set('number_of_generations', 400)
+                context.set('population_size', 100)
+                context.set('swarm_size', 100)
+                context.set('iteration_limit', 3000)
+                context.set('tolerance', 1e-10)
+                context.set('problem', 'Problem13_FirstRunAfterMeeting')
+                context.set('fit', 1)
+                config = context.get_config()
 
-        # print(config)
+        else:
+            print('warning: You are using the yaml file. You should '
+                  'be modifying the paramteers there!')
+            config = tasks.ParameterEstimation.Config.from_yaml(PARAMETER_ESTIMATION_CONFIG_YAML)
+        print(config)
         # config = tasks.ParameterEstimation.Config.from_yaml(yml=PARAMETER_ESTIMATION_CONFIG_YAML)
         pe = tasks.ParameterEstimation(config)
         py_mod = pe.models['simple_akt_model'].model
 
         if PLOT_PE:
             data = viz.Parse(pe).data['simple_akt_model']
-            print(data.head())
+            pl = viz.Boxplots(
+                pe, savefig=True, log10=True,
+                num_per_plot=data.shape[1],
+                truncate_mode='ranks',
+                theta=range(150),
+                rc={'figure.figsize': (20, 10)},
+                )
             pl = viz.WaterfallPlot(pe, savefig=True)
             pl = viz.PlotParameterEstimation(pe, savefig=True)
+
+            data.to_csv(pe.fit_dir + '/' + 'parameters.csv')
+            print(data.head())
 
             # what if I made the system open?
 

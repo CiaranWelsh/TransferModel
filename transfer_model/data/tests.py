@@ -119,13 +119,23 @@ class ExperimentalDataProcessingTests(unittest.TestCase):
         expected = (24, 88)
         self.assertEqual(actual, expected)
 
-    def test_plot1(self):
-        gd = GetData('ZR75', )
+    def test_plot1_no_interp(self):
+        gd = GetData('ZR75')
         gd.plot()
 
-    def test_plot2(self):
+    def test_plot2_no_interp(self):
         gd = GetData('T47D')
         gd.plot()
+
+    def test_plot1_interp(self):
+        gd = GetData('ZR75', interpolation_num=12, interpolation_kind='linear')
+        fname = os.path.join(DATA_DIRECTORY, 'ZR75ExperimentalDataInterpAndLogSpace.png')
+        gd.plot(fname=fname)
+
+    def test_plot2_interp(self):
+        gd = GetData('T47D', interpolation_num=12, interpolation_kind='linear')
+        fname = os.path.join(DATA_DIRECTORY, 'T47DExperimentalDataInterpAndLogSpace.png')
+        gd.plot(fname=fname)
 
     def test_plot_mcf7(self):
         import pandas as pd
@@ -143,7 +153,8 @@ class ExperimentalDataProcessingTests(unittest.TestCase):
 
 
     def test_to_copasi_format(self):
-        gd = GetData('T47D')
+        gd = GetData('T47D', interpolation_kind='linear',
+                     interpolation_num=24)
         gd.to_copasi_format()
 
     def test_Get_ic(self):
